@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="result-container">
+    {% if error %}
+        <div class="error-box">
+            <p><strong>Error:</strong> {{ error }}</p>
+        </div>
+    {% else %}
+        <div class="prediction-box">
+            <h2>🧾 Prediction Result</h2>
+            <p><strong>Status:</strong> {{ result }}</p>
+            <p><strong>Confidence Scores:</strong></p>
+            <ul>
+                <li>Fraudulent: {{ confidence["Fraudulent"] }}%</li>
+                <li>Non-Fraudulent: {{ confidence["Non-Fraudulent"] }}%</li>
+            </ul>
+        </div>
+    {% endif %}
+    <a href="/" class="back-button">🔙 Try Another Prediction</a>
+</div>
+{% endblock %}
